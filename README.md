@@ -1,1 +1,1 @@
-# learning
+Learning Java concurrency by doing
