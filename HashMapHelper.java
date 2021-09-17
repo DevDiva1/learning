@@ -2,7 +2,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class Helper {
+public class HashMapHelper {
     public static List<Map.Entry<String, Integer>> sortMap(Map<String, Integer> map) {
         List<Map.Entry<String, Integer>> list =
                 map.entrySet().stream()
