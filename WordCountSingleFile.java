@@ -54,14 +54,14 @@ public class WordCountSingleFile {
     
     // Driver program to test above functions
     public static void main(String[] args) {
-        String filepath = "src/main/resources/file2.txt";
+        String filepath = "src/main/resources/sample-file1.txt";
         final int topKOccurrance = 2;
         //To measure elapsed time with nanosecond precision
         long startTime = System.nanoTime();
         
         Map<String, Integer> map = buildMap(filepath);
-        List<Map.Entry<String, Integer>> sortedList = Helper.sortMap(map);
-        Helper.printTopKFreqWords(sortedList, topKOccurrance);
+        List<Map.Entry<String, Integer>> sortedList = HashMapHelper.sortMap(map);
+        HashMapHelper.printTopKFreqWords(sortedList, topKOccurrance);
         
         long endTime = System.nanoTime();
         long timeElapsed = endTime - startTime;

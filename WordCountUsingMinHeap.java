@@ -71,7 +71,7 @@ public class WordCountUsingMinHeap {
     }
 
     public static void main(String[] args) {
-        String filepath = "src/main/resources/file1.txt";
+        String filepath = "src/main/resources/sample-file2.txt";
         PriorityQueue<WordCount> minHeap = buildMapAndHeap(filepath, 1);
         System.out.println(minHeap);
     }

@@ -49,8 +49,8 @@ public class WordCountMultipleFiles {
         }
 
         System.out.println(wordMap);
-        List<Map.Entry<String, Integer>> sortedList = Helper.sortMap(wordMap);
-        Helper.printTopKFreqWords(sortedList, 2);
+        List<Map.Entry<String, Integer>> sortedList = HashMapHelper.sortMap(wordMap);
+        HashMapHelper.printTopKFreqWords(sortedList, 2);
         executorService.shutdown();
     }
 }
