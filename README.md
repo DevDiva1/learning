@@ -39,3 +39,11 @@ WordCountMultipleFiles class is multi-threaded as executor is able to use multip
 FileReader is callable task to read file that is responsible for building individual file wordCount HashMap
 Approach : Each thread has it's individual HashMap.
 Then once future task is complete, results of the asynchronous tasks are combined in another finalResult hashmap.
+
+REFERENCES:
+https://docs.oracle.com/javase/8/docs/api/java/util/Map.Entry.html#comparingByValue--
+https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/ExecutorService.html
+https://stackoverflow.com/questions/24372257/implementing-priority-queue-using-hashmap
+https://www.geeksforgeeks.org/find-the-k-most-frequent-words-from-a-file/
+
+
