@@ -30,7 +30,8 @@ Implementation Classes : WordCountSingleFile, HashMapHelper classes to sort Hash
 storing words - TRIE and DAG.
 TRIE - memory is shared between multiple words with common prefix)
 
-=============================================================================================================================
+
+----------------------------------------------------------------------------------------------------------------------------
 Follow - up : Find the top k frequently occurring words from multiple files
 
 Reading multiple files under folder with executor service in Java8. 
