@@ -30,12 +30,12 @@ public class WordCountUsingMinHeap {
                 for (int i = 0; i < words.length; i++) {
                     if (wordMap.get(words[i]) == null) {
                         wordMap.put(words[i], 1);
-                        updateMinHeap(minHeap, new WordCount(words[i], 1), topFreq);
+                        HeapHelper.updateMinHeap(minHeap, new WordCount(words[i], 1), topFreq);
                     } else {
                         int newValue = Integer.valueOf(String.valueOf(wordMap.get(words[i])));
                         newValue++;
                         wordMap.put(words[i], newValue);
-                        updateMinHeap(minHeap, new WordCount(words[i], newValue), topFreq);
+                        HeapHelper.updateMinHeap(minHeap, new WordCount(words[i], newValue), topFreq);
                     }
                 }
                 sb.append(System.lineSeparator());
@@ -45,29 +45,6 @@ public class WordCountUsingMinHeap {
             System.err.format("IOException: %s%n", exception);
         }
         return minHeap;
-    }
-
-    public static void updateMinHeap(PriorityQueue<WordCount> minHeap, WordCount data, int maxSize) {
-        if (minHeap.size() < maxSize) {
-            minHeap.offer(data);
-        } else if (minHeap.peek().count < data.count) {
-            minHeap.poll();
-            minHeap.offer(data);
-        }
-    }
-
-    static class WordCount {
-        protected final String word;
-        protected final int count;
-
-        WordCount(String word, int count) {
-            this.word = word;
-            this.count = count;
-        }
-        @Override
-        public String toString() {
-            return "{" + "word='" + word + '\'' + ", count=" + count + '}'+"\r\n";
-        }
     }
 
     public static void main(String[] args) {
