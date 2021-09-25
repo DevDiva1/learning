@@ -56,8 +56,6 @@ public class WordCountConcurrentHashMap implements Callable<ConcurrentHashMap<St
         for (int i = 0; i < list.size(); i++) {
             futureResult = executorService.submit(list.get(i));
         }
-
-
         resultMap = futureResult.get();
         System.out.println(resultMap);
         //Sort using MinHeap
