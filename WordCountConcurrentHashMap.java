@@ -10,13 +10,8 @@ public class WordCountConcurrentHashMap implements Callable<ConcurrentHashMap<St
     protected static ConcurrentHashMap<String, Integer> map = new ConcurrentHashMap<>();
 
     public void addWord(String word) {
-        if (map.get(word) == null) {
-            map.put(word, 1);
-        } else {
-            int newValue = Integer.valueOf(String.valueOf(map.get(word)));
-            newValue++;
-            map.put(word, newValue);
-        }
+        //compute is atomic operations in the ConcurrentHashMap class
+        map.compute(word, (k,v)-> v == null ? 1 : v + 1);
     }
 
     WordCountConcurrentHashMap(String fileName) {
@@ -41,7 +36,7 @@ public class WordCountConcurrentHashMap implements Callable<ConcurrentHashMap<St
 
         ExecutorService executorService = Executors.newFixedThreadPool(2);
         List<WordCountConcurrentHashMap> list = new ArrayList<>();
-        List<Future<ConcurrentHashMap<String, Integer>>> futureResult = new ArrayList<>();
+        Future<ConcurrentHashMap<String, Integer>> futureResult = null;
         ConcurrentHashMap<String, Integer> resultMap;
         PriorityQueue<WordCount> minHeap = new PriorityQueue<>(Comparator.comparingInt(wc -> wc.count));
 
@@ -59,12 +54,11 @@ public class WordCountConcurrentHashMap implements Callable<ConcurrentHashMap<St
 
         //submitting task with callable
         for (int i = 0; i < list.size(); i++) {
-            futureResult.add(executorService.submit(list.get(i)));
+            futureResult = executorService.submit(list.get(i));
         }
 
-        int resultIndex = futureResult.size();
-        resultMap = futureResult.get(resultIndex - 1).get();
-        //Print HashMap
+
+        resultMap = futureResult.get();
         System.out.println(resultMap);
         //Sort using MinHeap
         for (Map.Entry<String, Integer> entry : resultMap.entrySet()) {
