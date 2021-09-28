@@ -45,10 +45,12 @@ https://docs.oracle.com/javase/8/docs/api/java/util/Map.Entry.html#comparingByVa
 https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/ExecutorService.html
 https://stackoverflow.com/questions/24372257/implementing-priority-queue-using-hashmap
 https://www.geeksforgeeks.org/find-the-k-most-frequent-words-from-a-file/
+
 TESTING Multi-threaded environment:
 http://vmlens.com/
 https://www.baeldung.com/java-testing-multithreaded
 https://stackoverflow.com/questions/51586922/unit-testing-an-executor-callable
+https://www.hhutzler.de/blog/using-executorservice-callable-api-to-run-multi-threaded-junit-tests/
 
 
 
